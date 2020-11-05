@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser, setUser } from '../../../actions/userActions';
+import { fetchUser, setSearch } from '../../../actions/userActions';
 
 const Input = () => {
   const dispatch = useDispatch();
-  const username = useSelector(state => state.user);
+  const username = useSelector(state => state.search);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ const Input = () => {
   };
 
   const handleChange = ({ target }) => {
-    dispatch(setUser(target.value));
+    dispatch(setSearch(target.value));
   };
 
   return (

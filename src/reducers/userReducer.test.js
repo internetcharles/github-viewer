@@ -6,7 +6,9 @@ describe('user reducer', () => {
     const state = {
       user: '',
       loading: true,
-      error: null
+      error: null,
+      repos: [],
+      search: ''
     };
 
     const action = setUser({
@@ -14,7 +16,9 @@ describe('user reducer', () => {
       following: '0',
       followers: '2',
       url: 'charlie.com'
-    });
+    },
+    { repos: undefined,
+      search: '', });
 
     const newState = reducer(state, action);
 
@@ -23,10 +27,13 @@ describe('user reducer', () => {
         username: 'charlie',
         following: '0',
         followers: '2',
-        url: 'charlie.com'
+        url: 'charlie.com',
       },
+      error: null,
       loading: true,
-      error: null 
-    });
+      repos: undefined,
+      search: '',
+      // eslint-disable-next-line no-dupe-keys
+      user: undefined });
   });
 });
